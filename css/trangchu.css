@@ -1,0 +1,186 @@
+/* Reset CSS */
+html,
+body,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9f1f6;
+}
+
+.trangchu__content {
+    display: flex;
+    height: 1000px;
+    flex-direction: row;
+}
+
+/* LEFT NAVBAR */
+
+.trangchu__content--left {
+    width: 18%;
+    background-image: linear-gradient(60deg, #6fa5ce, #f67fd6, #50b3cf);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    border-radius: 0 12px 12px 0;
+}
+
+.trangchu__content--right {
+    background-color: #e9f1f6;
+    width: 100%;
+}
+
+.trangchu__content--left .trangchu__brand {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    justify-content: center;
+}
+
+.trangchu__content--left .trangchu__brand .brand__logo {
+    font-size: 40px;
+    color: white;
+    margin-right: 10px;
+}
+
+.trangchu__content--left .trangchu__brand .brand__name {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.trangchu__navbar .navbar__item {
+    list-style-type: none;
+    color: black;
+    position: relative;
+}
+
+.trangchu__navbar .navbar__item .navbar__item--content {
+    margin-left: 25%;
+    position: absolute;
+    padding: 8px 0;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.875rem;
+    transition: all .5s;
+}
+
+.trangchu__navbar .navbar__item .navbar__item--content i {
+    margin-right: 5px;
+}
+
+.trangchu__navbar .navbar__item .navbar__item--overflow {
+    background-color: white;
+    color: rgba(255, 255, 255, 0) !important;
+    left: 0;
+    top: 0;
+    width: 0;
+    border-radius: 0px 17px 17px 0px;
+    padding: 8px 0;
+    transition: all 0.5s;
+}
+
+.trangchu__navbar .navbar__item:hover .navbar__item--overflow {
+    width: 90%;
+}
+
+
+.trangchu__navbar .navbar__item:hover .navbar__item--content {
+    color: black;
+}
+
+.trangchu__navbar .navbar__item.active .navbar__item--overflow {
+    width: 90%;
+}
+
+.trangchu__navbar .navbar__item.active .navbar__item--content {
+    color: black;
+}
+
+
+/* ----------------------- */
+
+.trangchu__content--right {
+    margin-left: 18%;
+    padding: 20px 0 20px 20px;
+}
+
+.trangchu__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trangchu__header .header--left {
+    margin-top: 10px;
+}
+
+.trangchu__header .header--left p:first-child {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+}
+
+.trangchu__header .header--left p:nth-child(2){
+    font-size: .875rem;
+    color: rgb(131, 131, 131);
+    font-weight: 400;
+}
+
+.header--right {
+    margin-right: 40px;
+}
+
+.header--right .header__search {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+}
+
+.header__search .search__bar {
+    background-color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.header__search .search__bar input { 
+    font-size: 16px;
+    color: #8f8f8f;
+    border: none;
+    width: 20rem;
+    border-radius: 12px;
+    padding: 7px 15px 7px 15px;
+}
+
+.header__search .search__bar input:focus {
+    border: 2px black solid;
+}
+
+.header__search .search__bar a {
+    color: gray;
+    padding: 0 10px;
+}
+
+.header--right .header__search .avt {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    margin-left: 30px;
+}
+
+.trangchu__carousel {
+    height: 500px;
+}
+
+.trangchu__course {
+    height: 500px;
+}
+
