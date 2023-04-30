@@ -4,8 +4,12 @@ $(document).ready(function () {
   var nameForm = $("#name");
   var emailForm = $("#email");
   var passwordForm = $("#password");
+  var input = $("input");
   var passwordAgainForm = $("#password2");
   var button = $("button");
+  var modal = $(".modal");
+
+  var date = new Date();
 
   form.on("submit", function (e) {
     e.preventDefault();
@@ -21,6 +25,15 @@ $(document).ready(function () {
     var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const value = email.val();
     return regex.test(value) ? true : false;
+  }
+
+  function checkEmail(email) {
+    for (var key in localStorage) {
+      var value = localStorage[key];
+      const emailCheck = value.toString().split(", ")[1];
+      if (emailCheck === email.val()) return false;
+    }
+    return true;
   }
 
   function validatePassword(password, password2) {
@@ -42,6 +55,7 @@ $(document).ready(function () {
       nameForm.css({ border: "1px solid red" });
       check = false;
     }
+
     // Xac thuc email
 
     if (validateElement(emailForm) === false) {
@@ -57,6 +71,17 @@ $(document).ready(function () {
 
     if (validateEmail(emailForm) === false) {
       $("#message__email").html("Vui lòng nhập đúng Email!").css({
+        color: "#FF6666",
+        "font-size": "16px",
+        margin: "0",
+        "font-weight": "400",
+      });
+      emailForm.css({ border: "1px solid red" });
+      check = false;
+    }
+
+    if (checkEmail(emailForm) === false) {
+      $("#message__email").html("Email đã tồn tại").css({
         color: "#FF6666",
         "font-size": "16px",
         margin: "0",
@@ -104,11 +129,46 @@ $(document).ready(function () {
     return check;
   }
 
+  //check
+  nameForm.focus(function () {
+    $("#message__name").text("");
+    nameForm.css("border", "none");
+  });
+  emailForm.focus(function () {
+    $("#message__email").text("");
+    emailForm.css("border", "none");
+  });
+
+  passwordForm.focus(function () {
+    $("#message__password").text("");
+    passwordForm.css("border", "none");
+  });
+
+  passwordAgainForm.focus(function () {
+    $("#message__password2").text("");
+    passwordAgainForm.css("border", "none");
+  });
+
+  var day = date.getDate().toString();
+  var month = date.getMonth().toString();
+  var year = date.getFullYear().toString();
+  var time = day + "_" + month + "_" + year;
   button.click(function () {
     if (validateForm() === true) {
-      window.localStorage.setItem("name", nameForm.val());
-      window.localStorage.setItem("email", emailForm.val());
-      window.localStorage.setItem("password", passwordForm.val());
+      var id = localStorage.length;
+
+      var text =
+        nameForm.val() +
+        ", " +
+        emailForm.val() +
+        ", " +
+        passwordForm.val() +
+        ", " +
+        -1 +
+        ", " +
+        time;
+      window.localStorage.setItem(id, text);
+      modal.removeClass("d-none");
     }
   });
 });
